@@ -1,0 +1,51 @@
+<div ng-controller="BusinessController">
+        <h1>Business</h1>
+        <br>
+  
+  <div class="alert alert-success alert-dismissable" ng-show="message">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close" ng-click="hide_message()">&times;</a>
+    {{message}}
+  </div>
+  
+        <table class="table table-hover">
+          <thead>
+              <tr>
+                <th>Business</th>
+                <th>Details</th>
+                <th>Date</th>
+                <th>Action</th>
+              </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <input class="form-control" placeholder="Business" ng-model="contact.name" />
+              </td>
+              <td>
+                <input class="form-control" placeholder="Details" ng-model="contact.email" />
+              </td>
+              <td>
+                <input class="form-control" placeholder="Date" ng-model="contact.number" />
+              </td>
+              <td>
+                <div class="btn-group">
+                <button class="btn btn-primary" ng-click="add_contact()">Add</button>
+                <button class="btn btn-success" ng-click="update_contact()">Update</button>
+                  </div>
+              </td>
+            </tr>
+            <tr ng-repeat="contact in contact_list">
+              <td>{{contact.name}}</td>
+              <td>{{contact.email}}</td>
+              <td>{{contact.number}}</td>
+              <td>
+                <div class="btn-group">
+                  <button class="btn btn-warning" ng-click="edit_contact(contact)">Edit</button>
+                  <button class="btn btn-danger" ng-click="delete_contact(contact._id)">Delete</button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+  
+      </div>

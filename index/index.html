@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular-route.js"></script>
+    <script src="controllers/BusinessController.js"></script>
+    <script src="controllers/MeetingsController.js"></script>
+    <script src="controllers/TripsController.js"></script>
+  </head>
+  <body ng-app="myApp">
+
+ 
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Business</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#meetings">Meetings</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#trips">Trips</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    
+    <div ng-view></div>
+
+
+
+</body>
+<script>
+
+    var myApp = angular.module('myApp', ['ngRoute']);
+
+    // configure our routes
+    myApp.config(function($routeProvider) {
+        $routeProvider
+            .when('/', {
+                templateUrl : 'business.html'
+            })
+
+            .when('/meetings', {
+                templateUrl : 'meetings.html'
+            })
+
+            .when('/trips', {
+                templateUrl : 'trips.html'
+            });
+    });
+
+</script>
+
+</html>
